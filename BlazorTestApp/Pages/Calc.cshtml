@@ -1,0 +1,17 @@
+﻿@page "/calc"
+
+<h1>Calc</h1>
+<input bind="@calcItem" /> <button class="btn btn-primary" onclick="@CalcTimeBonus">Get TimeBonus</button>
+
+<p>Time bonus is: @timeBonus %</p>
+
+@functions{
+    string calcItem;
+    string timeBonus;
+
+    void CalcTimeBonus()
+    {
+        // TODO: ここに計算式
+        timeBonus = calcItem;
+    }
+}
