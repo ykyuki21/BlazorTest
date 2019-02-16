@@ -1,0 +1,60 @@
+﻿@page "/rune"
+
+<h1>Rune</h1>
+<div>
+    強化前ルーンサイズ <input bind="@beforeRuneSize" />
+</div>
+<div>
+    強化用ルーンサイズ <input bind="@useRuneSize" />
+</div>
+<button class="btn btn-primary" onclick="@CalculateAddSize">Calculate</button>
+<p>少数第5位が四捨五入されます。</p>
+
+<p>増加ルーンサイズ: @displayAddSize</p>
+
+<div>
+    強化前ルーンサイズ <input bind="@beforeRuneSize" />
+</div>
+<div>
+    強化値 <input bind="@addSize" />
+</div>
+<button class="btn btn-primary" onclick="@CalculateRequireRuneSize">Calculate</button>
+<p>少数第5位が四捨五入されます。</p>
+
+<p>必要ルーンサイズ: @displayRequireSize</p>
+
+@functions{
+    double beforeRuneSize;
+    double useRuneSize;
+    double addSize;
+    string displayAddSize;
+    string displayRequireSize;
+
+    void CalculateAddSize()
+    {
+        if (beforeRuneSize <= 30.000)
+        {
+            addSize = ((useRuneSize - 27) / 5 + 0.1);
+        }
+        else
+        {
+            addSize = ((useRuneSize - 27) / 5 + 0.1) / 2;
+        }
+
+        displayAddSize = $"{ addSize: 0.0000}";
+    }
+
+    void CalculateRequireRuneSize()
+    {
+        if (beforeRuneSize <= 30.000)
+        {
+            useRuneSize = addSize * 5 + 27 - 0.5;
+        }
+        else
+        {
+            useRuneSize = addSize * 5 * 2 + 27 - 0.5;
+        }
+
+        displayRequireSize = $"{ useRuneSize: 0.0000}";
+    }
+}

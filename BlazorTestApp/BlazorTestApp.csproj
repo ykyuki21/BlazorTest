@@ -15,6 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Update="Pages\Rune.cshtml">
+      <Pack>$(IncludeRazorContentInPack)</Pack>
+    </Content>
     <Content Update="Pages\Calc.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
