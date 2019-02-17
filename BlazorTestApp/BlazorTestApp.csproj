@@ -18,7 +18,7 @@
     <Content Update="Pages\Rune.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
-    <Content Update="Pages\Calc.cshtml">
+    <Content Update="Pages\TimeBonus.cshtml">
       <Pack>$(IncludeRazorContentInPack)</Pack>
     </Content>
   </ItemGroup>

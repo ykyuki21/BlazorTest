@@ -1,0 +1,25 @@
+﻿@page "/timebonus"
+
+<h1>Time Bonus</h1>
+<input bind="@time" />秒 <button class="btn btn-primary" onclick="@CalcTimeBonus">Get TimeBonus</button>
+
+<p>Time bonus is: @timeBonus %</p>
+
+@functions{
+    static readonly double MaxTime = 1200;
+    static readonly double MaxTimeBonus = 252;
+    double time;
+    double timeBonus;
+
+    void CalcTimeBonus()
+    {
+        if (time > MaxTime)
+        {
+            timeBonus = 0;
+            return;
+        }
+
+        // 経過時間の割合 * 最大ボーナス
+        timeBonus = ((MaxTime - time) / MaxTime) * MaxTimeBonus;
+    }
+}
